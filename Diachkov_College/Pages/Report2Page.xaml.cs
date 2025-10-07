@@ -18,7 +18,7 @@ namespace Diachkov_College.Pages
     /// <summary>
     /// Логика взаимодействия для Report2Page.xaml
     /// </summary>
-    public partial class Report2Page : Page
+    public partial class Report2Page : System.Windows.Controls.Page
     {
         public Report2Page()
         {

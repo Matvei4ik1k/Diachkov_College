@@ -8,7 +8,6 @@
          Title="MainWindow" Height="450" Width="800">
     <Grid Background="Gray" >
 
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.4*"/>
             <ColumnDefinition/>
@@ -34,9 +33,8 @@
             <Button Height="50" Name="JournalBtn" Grid.Row="6"   Content="Учёт" Click="JournalBtn_Click"/>
             <Button Height="50" Name="Report1Btn"  Grid.Row="8"   Content="Отчёт1" Click="Report1Btn_Click"/>
             <Button Height="50" Name="Report2Btn" Grid.Row="10"   Content="Отчёт2" Click="Report2Btn_Click" />
-         
-            
-
         </Grid>
+
+        <Frame Grid.Column="1" Name="MainFrame" NavigationUIVisibility="Hidden"  />
     </Grid>
 </Window>

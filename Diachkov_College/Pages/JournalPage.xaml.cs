@@ -18,7 +18,7 @@ namespace Diachkov_College.Pages
     /// <summary>
     /// Логика взаимодействия для JournalPage.xaml
     /// </summary>
-    public partial class JournalPage : Page
+    public partial class JournalPage : System.Windows.Controls.Page
     {
         public JournalPage()
         {

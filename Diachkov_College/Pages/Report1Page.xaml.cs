@@ -18,7 +18,7 @@ namespace Diachkov_College.Pages
     /// <summary>
     /// Логика взаимодействия для Report1Page.xaml
     /// </summary>
-    public partial class Report1Page : Page
+    public partial class Report1Page : System.Windows.Controls.Page
     {
         public Report1Page()
         {

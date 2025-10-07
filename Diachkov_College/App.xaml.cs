@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Diachkov_College.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -13,5 +15,6 @@ namespace Diachkov_College
     /// </summary>
     public partial class App : Application
     {
+        public static DiachkovCollegeEntities context = new DiachkovCollegeEntities();
     }
 }

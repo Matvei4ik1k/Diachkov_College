@@ -18,11 +18,17 @@ namespace Diachkov_College.Pages
     /// <summary>
     /// Логика взаимодействия для AddGroupPage.xaml
     /// </summary>
-    public partial class AddGroupPage : Page
+    public partial class AddGroupPage : System.Windows.Controls.Page
     {
         public AddGroupPage()
         {
             InitializeComponent();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SpecialCmb.SelectedValuePath="Id"
+            SpecialCmb.DisplayMemberPath="Name"
         }
     }
 }

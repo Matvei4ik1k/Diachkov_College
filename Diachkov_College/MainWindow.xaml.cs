@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diachkov_College.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,26 +28,28 @@ namespace Diachkov_College
 
         private void AddGroupBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new AddGroupPage());
         }
 
         private void AddActivityBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new AddActivityPage());
         }
 
         private void JournalBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new JournalPage());
         }
 
         private void Report1Btn_Click(object sender, RoutedEventArgs e)
         {
+            MainFrame.Navigate(new Report1Page());
 
         }
 
         private void Report2Btn_Click(object sender, RoutedEventArgs e)
         {
+            MainFrame.Navigate(new Report2Page());
 
         }
     }

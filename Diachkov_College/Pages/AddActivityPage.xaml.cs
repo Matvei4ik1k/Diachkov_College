@@ -18,7 +18,7 @@ namespace Diachkov_College.Pages
     /// <summary>
     /// Логика взаимодействия для AddActivityPage.xaml
     /// </summary>
-    public partial class AddActivityPage : Page
+    public partial class AddActivityPage : System.Windows.Controls.Page
     {
         public AddActivityPage()
         {
