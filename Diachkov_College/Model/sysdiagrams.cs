@@ -12,15 +12,12 @@ namespace Diachkov_College.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Journal
+    public partial class sysdiagrams
     {
-        public int ID { get; set; }
-        public System.DateTime DateEvent { get; set; }
-        public int IdGroup { get; set; }
-        public int IdActivity { get; set; }
-        public int Mark { get; set; }
-    
-        public virtual Activity Activity { get; set; }
-        public virtual Group Group { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -7,8 +7,30 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddActivityPage">
+    <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
 
-    <Grid>
-        
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" Grid.Row="2" Text="Введите активность" FontSize="16"/>
+            <TextBox Name="ActivitityTb" Grid.Row="2" Grid.Column="3" Background="White" />
+            <TextBlock Grid.Column="1"  VerticalAlignment="Center" Grid.Row="4" Text="Выберите напровление" FontSize="16"/>
+            <ComboBox Name="DirectionCmb" Background="White" Grid.Row="4" Grid.Column="3" />
+            <Button Height="40" Grid.Row="6" Grid.Column="3" Name="AddBtn" Click="AddBtn_Click"  Content="Добавить"/>
+        </Grid>
 </Page>

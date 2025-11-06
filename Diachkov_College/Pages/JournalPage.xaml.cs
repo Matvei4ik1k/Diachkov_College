@@ -23,6 +23,7 @@ namespace Diachkov_College.Pages
         public JournalPage()
         {
             InitializeComponent();
+            JornalLv.ItemsSource = App.context.Journal.ToList();
         }
     }
 }

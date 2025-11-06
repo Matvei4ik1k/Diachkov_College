@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\vboxuser\source\repos\Diachkov_College\Diachkov_College\Model\Model1.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\Matvei4ik1k\source\repos\Matvei4ik1k\Diachkov_College\Diachkov_College\Model\Model1.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

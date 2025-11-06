@@ -13,10 +13,10 @@ namespace Diachkov_College.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DiachkovCollegeEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public DiachkovCollegeEntities()
-            : base("name=DiachkovCollegeEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -30,5 +30,6 @@ namespace Diachkov_College.Model
         public DbSet<Group> Group { get; set; }
         public DbSet<Journal> Journal { get; set; }
         public DbSet<Spesial> Spesial { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

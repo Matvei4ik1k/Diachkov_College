@@ -8,7 +8,54 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="JournalPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <ListView Name="JornalLv" Grid.ColumnSpan="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Дата"
+                                  DisplayMemberBinding="{Binding DateEvent,  StringFormat = dd.MM.yyyy}"/>
+                    <GridViewColumn Header="Группа"
+                                  DisplayMemberBinding="{Binding Group.Name}"/>
+                    <GridViewColumn Header="Специальность"
+                                  DisplayMemberBinding="{Binding Group.Spesial.Name}"/>
+                    <GridViewColumn Header="Активность"
+                                  DisplayMemberBinding="{Binding Activity.Name}"/>
+                    <GridViewColumn Header="Направление"
+                                  DisplayMemberBinding="{Binding Activity.Direction.Name}"/>
+                    <GridViewColumn Header="Бал"
+                                  DisplayMemberBinding="{Binding Mark}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Text="Выберите дату" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
+        <TextBlock Text="Выберите специальность" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
+        <TextBlock Text="Выберите группу" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
+        <TextBlock Text="Введите балл" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
+        <ComboBox Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Width="180" Height="25"/>
+        <ComboBox Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" Width="180" Height="25"/>
+        <TextBlock Text="Выберите направление" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
+        <TextBlock Text="Выберите активность" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
+        <ComboBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" Width="180" Height="25"/>
+        <ComboBox Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Width="180" Height="25"/>
+        <Button  Content="Добавить" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" Width="150" Height="25" />
+        <DatePicker Grid.Row="2" Grid.Column="2" Width="180" Height="40" FontSize="10"/>
     </Grid>
 </Page>

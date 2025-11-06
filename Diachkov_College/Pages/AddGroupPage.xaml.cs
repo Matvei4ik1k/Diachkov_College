@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diachkov_College.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,36 @@ namespace Diachkov_College.Pages
         public AddGroupPage()
         {
             InitializeComponent();
+
+            SpecialCmb.SelectedValuePath = "Id";
+            SpecialCmb.DisplayMemberPath = "Name";
+            SpecialCmb.ItemsSource = App.context.Spesial.ToList();
         }
+
+
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            SpecialCmb.SelectedValuePath="Id"
-            SpecialCmb.DisplayMemberPath="Name"
+            if (string.IsNullOrEmpty(GroupTb.Text) && string.IsNullOrEmpty(SpecialCmb.Text))
+            {
+                MessageBox.Show("Заполните все поля");
+            }
+            else
+            {
+                Group group = new Group()
+                {
+                    Name = GroupTb.Text,
+                    Spesial = SpecialCmb.SelectedItem as Spesial
+                };
+
+                App.context.Group.Add(group);
+                App.context.SaveChanges();
+                MessageBox.Show("Группа добавлена");
+                GroupTb.Text = "";
+                SpecialCmb.Text = "";
+
+
+            }
         }
     }
 }
