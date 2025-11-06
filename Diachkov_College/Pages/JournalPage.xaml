@@ -45,17 +45,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock Text="Выберите дату" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
-        <TextBlock Text="Выберите специальность" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
-        <TextBlock Text="Выберите группу" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
-        <TextBlock Text="Введите балл" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
-        <ComboBox Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Width="180" Height="25"/>
-        <ComboBox Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" Width="180" Height="25"/>
-        <TextBlock Text="Выберите направление" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
-        <TextBlock Text="Выберите активность" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"       FontSize="13" />
-        <ComboBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" Width="180" Height="25"/>
-        <ComboBox Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Width="180" Height="25"/>
-        <Button  Content="Добавить" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" Width="150" Height="25" />
-        <DatePicker Grid.Row="2" Grid.Column="2" Width="180" Height="40" FontSize="10"/>
+        
+        <TextBlock Text="Выберите дату" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" />
+        <DatePicker Name="DateEventDp" Grid.Row="2" Grid.Column="2" Width="180" Height="40" FontSize="10"/>
+        
+        <TextBlock Text="Выберите специальность" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" />
+        <TextBlock Text="Выберите направление" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" />
+        
+        <ComboBox Name="SpecialCmb" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Width="180" Height="25"/>
+        <ComboBox Name="DirectionCmb" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Width="180" Height="25"/>
+
+        <TextBlock Text="Выберите группу" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" />
+        <TextBlock Text="Выберите активность" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" />
+
+        <ComboBox Name="GroupCmb" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" Width="180" Height="25"/>
+        <ComboBox Name="ActivityCmb" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" Width="180" Height="25"/>
+        
+        <TextBlock Text="Введите балл" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" />
+        <Button  Content="Добавить" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" Width="150" Height="25" Click="Button_Click" />
+        <TextBox Name="MarkTb" Grid.Row="7" Grid.Column="1"/>
     </Grid>
 </Page>

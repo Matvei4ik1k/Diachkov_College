@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Diachkov_College"
              StartupUri="\Pages\AddGroupPage.xaml">
     <Application.Resources>
-         
+     
     </Application.Resources>
 </Application>
