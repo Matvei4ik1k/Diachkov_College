@@ -15,6 +15,6 @@ namespace Diachkov_College
     /// </summary>
     public partial class App : Application
     {
-        public static DiachkovCollegeEntities context = new DiachkovCollegeEntities();
+        public static Entities context = new Entities();
     }
 }

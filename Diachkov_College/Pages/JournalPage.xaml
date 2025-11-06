@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Diachkov_College.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="480"
       Title="JournalPage">
 
     <Grid Background="White">
@@ -40,7 +40,7 @@
                                   DisplayMemberBinding="{Binding Activity.Name}"/>
                     <GridViewColumn Header="Направление"
                                   DisplayMemberBinding="{Binding Activity.Direction.Name}"/>
-                    <GridViewColumn Header="Бал"
+                    <GridViewColumn Header="Балл"
                                   DisplayMemberBinding="{Binding Mark}"/>
                 </GridView>
             </ListView.View>
