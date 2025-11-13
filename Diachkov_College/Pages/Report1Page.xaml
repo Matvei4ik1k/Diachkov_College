@@ -47,7 +47,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button  Background="Transparent" BorderBrush="Black" Grid.Row="8" Width="200" Height="40" Content="Выбрать" Margin="5"/>
+        <Button  Background="Transparent" BorderBrush="Black" Grid.Row="6" Width="200" Height="40" Content="Выбрать" Margin="5"/>
 
     </Grid>
 </Page>
