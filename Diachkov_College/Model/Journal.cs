@@ -18,7 +18,7 @@ namespace Diachkov_College.Model
         public System.DateTime DateEvent { get; set; }
         public int IdGroup { get; set; }
         public int IdActivity { get; set; }
-        public int Mark { get; set; }
+        public decimal Mark { get; set; }
     
         public virtual Activity Activity { get; set; }
         public virtual Group Group { get; set; }

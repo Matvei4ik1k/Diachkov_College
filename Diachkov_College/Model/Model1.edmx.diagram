@@ -5,16 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ebe9b307a3cc45a7b73cee06b8d959ee" Name="Diagram1">
-        <EntityTypeShape EntityType="Diachkov_CollegeModel.Activity" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diachkov_CollegeModel.Direction" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diachkov_CollegeModel.Group" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diachkov_CollegeModel.Journal" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diachkov_CollegeModel.Spesial" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diachkov_CollegeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="Diachkov_CollegeModel.FK__Activity__IdDire__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="Diachkov_CollegeModel.FK__Journal__IdActiv__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="Diachkov_CollegeModel.FK__Group__IdSpecial__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="Diachkov_CollegeModel.FK__Journal__IdGroup__403A8C7D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Diachkov_CollegeModel.Activity" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="Diachkov_CollegeModel.Direction" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="Diachkov_CollegeModel.Group" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="Diachkov_CollegeModel.Journal" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="Diachkov_CollegeModel.Spesial" Width="1.5" PointX="0.75" PointY="5.375" />
+        <AssociationConnector Association="Diachkov_CollegeModel.FK__Activity__IdDire__3A81B327" />
+        <AssociationConnector Association="Diachkov_CollegeModel.FK__Journal__IdActiv__412EB0B6" />
+        <AssociationConnector Association="Diachkov_CollegeModel.FK__Group__IdSpecial__3D5E1FD2" />
+        <AssociationConnector Association="Diachkov_CollegeModel.FK__Journal__IdGroup__403A8C7D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

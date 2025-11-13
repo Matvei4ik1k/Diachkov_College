@@ -27,7 +27,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <ListView Name="JornalLv" Grid.ColumnSpan="3">
+        <ListView Name="JournalLv" Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Дата"

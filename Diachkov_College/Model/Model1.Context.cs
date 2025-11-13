@@ -30,6 +30,5 @@ namespace Diachkov_College.Model
         public DbSet<Group> Group { get; set; }
         public DbSet<Journal> Journal { get; set; }
         public DbSet<Spesial> Spesial { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

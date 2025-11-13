@@ -25,7 +25,7 @@ namespace Diachkov_College.Pages
         {
             InitializeComponent();
 
-            SpecialCmb.SelectedValuePath = "Id";
+            SpecialCmb.SelectedValuePath = "ID";
             SpecialCmb.DisplayMemberPath = "Name";
             SpecialCmb.ItemsSource = App.context.Spesial.ToList();
         }

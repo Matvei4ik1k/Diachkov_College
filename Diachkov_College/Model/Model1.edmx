@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Diachkov_CollegeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Diachkov_CollegeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Activity">
           <Key>
             <PropertyRef Name="ID" />
@@ -36,7 +36,7 @@
           <Property Name="DateEvent" Type="date" Nullable="false" />
           <Property Name="IdGroup" Type="int" Nullable="false" />
           <Property Name="IdActivity" Type="int" Nullable="false" />
-          <Property Name="Mark" Type="int" Nullable="false" />
+          <Property Name="Mark" Type="decimal" Precision="12" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Spesial">
           <Key>
@@ -44,16 +44,6 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__Activity__IdDire__3A81B327">
           <End Role="Direction" Type="Self.Direction" Multiplicity="1" />
@@ -109,7 +99,6 @@
           <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Spesial" EntityType="Self.Spesial" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Activity__IdDire__3A81B327" Association="Self.FK__Activity__IdDire__3A81B327">
             <End Role="Direction" EntitySet="Direction" />
             <End Role="Activity" EntitySet="Activity" />
@@ -127,38 +116,60 @@
             <End Role="Journal" EntitySet="Journal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Diachkov_CollegeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activity" EntityType="Diachkov_CollegeModel.Activity" />
+          <EntitySet Name="Direction" EntityType="Diachkov_CollegeModel.Direction" />
+          <EntitySet Name="Group" EntityType="Diachkov_CollegeModel.Group" />
+          <EntitySet Name="Journal" EntityType="Diachkov_CollegeModel.Journal" />
+          <EntitySet Name="Spesial" EntityType="Diachkov_CollegeModel.Spesial" />
+          <AssociationSet Name="FK__Activity__IdDire__3A81B327" Association="Diachkov_CollegeModel.FK__Activity__IdDire__3A81B327">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Journal__IdActiv__412EB0B6" Association="Diachkov_CollegeModel.FK__Journal__IdActiv__412EB0B6">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Group__IdSpecial__3D5E1FD2" Association="Diachkov_CollegeModel.FK__Group__IdSpecial__3D5E1FD2">
+            <End Role="Spesial" EntitySet="Spesial" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Journal__IdGroup__403A8C7D" Association="Diachkov_CollegeModel.FK__Journal__IdGroup__403A8C7D">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Activity">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdDirection" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Direction" Relationship="Self.FK__Activity__IdDire__3A81B327" FromRole="Activity" ToRole="Direction" />
-          <NavigationProperty Name="Journal" Relationship="Self.FK__Journal__IdActiv__412EB0B6" FromRole="Activity" ToRole="Journal" />
+          <NavigationProperty Name="Direction" Relationship="Diachkov_CollegeModel.FK__Activity__IdDire__3A81B327" FromRole="Activity" ToRole="Direction" />
+          <NavigationProperty Name="Journal" Relationship="Diachkov_CollegeModel.FK__Journal__IdActiv__412EB0B6" FromRole="Activity" ToRole="Journal" />
         </EntityType>
         <EntityType Name="Direction">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Activity" Relationship="Self.FK__Activity__IdDire__3A81B327" FromRole="Direction" ToRole="Activity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activity" Relationship="Diachkov_CollegeModel.FK__Activity__IdDire__3A81B327" FromRole="Direction" ToRole="Activity" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdSpecial" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Spesial" Relationship="Self.FK__Group__IdSpecial__3D5E1FD2" FromRole="Group" ToRole="Spesial" />
-          <NavigationProperty Name="Journal" Relationship="Self.FK__Journal__IdGroup__403A8C7D" FromRole="Group" ToRole="Journal" />
+          <NavigationProperty Name="Spesial" Relationship="Diachkov_CollegeModel.FK__Group__IdSpecial__3D5E1FD2" FromRole="Group" ToRole="Spesial" />
+          <NavigationProperty Name="Journal" Relationship="Diachkov_CollegeModel.FK__Journal__IdGroup__403A8C7D" FromRole="Group" ToRole="Journal" />
         </EntityType>
         <EntityType Name="Journal">
           <Key>
@@ -168,31 +179,21 @@
           <Property Name="DateEvent" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdGroup" Type="Int32" Nullable="false" />
           <Property Name="IdActivity" Type="Int32" Nullable="false" />
-          <Property Name="Mark" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Activity" Relationship="Self.FK__Journal__IdActiv__412EB0B6" FromRole="Journal" ToRole="Activity" />
-          <NavigationProperty Name="Group" Relationship="Self.FK__Journal__IdGroup__403A8C7D" FromRole="Journal" ToRole="Group" />
+          <Property Name="Mark" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <NavigationProperty Name="Activity" Relationship="Diachkov_CollegeModel.FK__Journal__IdActiv__412EB0B6" FromRole="Journal" ToRole="Activity" />
+          <NavigationProperty Name="Group" Relationship="Diachkov_CollegeModel.FK__Journal__IdGroup__403A8C7D" FromRole="Journal" ToRole="Group" />
         </EntityType>
         <EntityType Name="Spesial">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Group" Relationship="Self.FK__Group__IdSpecial__3D5E1FD2" FromRole="Spesial" ToRole="Group" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Group" Relationship="Diachkov_CollegeModel.FK__Group__IdSpecial__3D5E1FD2" FromRole="Spesial" ToRole="Group" />
         </EntityType>
         <Association Name="FK__Activity__IdDire__3A81B327">
-          <End Role="Direction" Type="Self.Direction" Multiplicity="1" />
-          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <End Type="Diachkov_CollegeModel.Direction" Role="Direction" Multiplicity="1" />
+          <End Type="Diachkov_CollegeModel.Activity" Role="Activity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Direction">
               <PropertyRef Name="ID" />
@@ -203,8 +204,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Journal__IdActiv__412EB0B6">
-          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <End Type="Diachkov_CollegeModel.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="Diachkov_CollegeModel.Journal" Role="Journal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Activity">
               <PropertyRef Name="ID" />
@@ -215,8 +216,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Group__IdSpecial__3D5E1FD2">
-          <End Role="Spesial" Type="Self.Spesial" Multiplicity="1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <End Type="Diachkov_CollegeModel.Spesial" Role="Spesial" Multiplicity="1" />
+          <End Type="Diachkov_CollegeModel.Group" Role="Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Spesial">
               <PropertyRef Name="ID" />
@@ -227,8 +228,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Journal__IdGroup__403A8C7D">
-          <End Role="Group" Type="Self.Group" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <End Type="Diachkov_CollegeModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="Diachkov_CollegeModel.Journal" Role="Journal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="ID" />
@@ -238,30 +239,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Activity" EntityType="Self.Activity" />
-          <EntitySet Name="Direction" EntityType="Self.Direction" />
-          <EntitySet Name="Group" EntityType="Self.Group" />
-          <EntitySet Name="Journal" EntityType="Self.Journal" />
-          <EntitySet Name="Spesial" EntityType="Self.Spesial" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <AssociationSet Name="FK__Activity__IdDire__3A81B327" Association="Self.FK__Activity__IdDire__3A81B327">
-            <End Role="Direction" EntitySet="Direction" />
-            <End Role="Activity" EntitySet="Activity" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Journal__IdActiv__412EB0B6" Association="Self.FK__Journal__IdActiv__412EB0B6">
-            <End Role="Activity" EntitySet="Activity" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Group__IdSpecial__3D5E1FD2" Association="Self.FK__Group__IdSpecial__3D5E1FD2">
-            <End Role="Spesial" EntitySet="Spesial" />
-            <End Role="Group" EntitySet="Group" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Journal__IdGroup__403A8C7D" Association="Self.FK__Journal__IdGroup__403A8C7D">
-            <End Role="Group" EntitySet="Group" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -271,56 +248,45 @@
           <EntitySetMapping Name="Activity">
             <EntityTypeMapping TypeName="Diachkov_CollegeModel.Activity">
               <MappingFragment StoreEntitySet="Activity">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Direction">
             <EntityTypeMapping TypeName="Diachkov_CollegeModel.Direction">
               <MappingFragment StoreEntitySet="Direction">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Group">
             <EntityTypeMapping TypeName="Diachkov_CollegeModel.Group">
               <MappingFragment StoreEntitySet="Group">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IdSpecial" ColumnName="IdSpecial" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Journal">
             <EntityTypeMapping TypeName="Diachkov_CollegeModel.Journal">
               <MappingFragment StoreEntitySet="Journal">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DateEvent" ColumnName="DateEvent" />
-                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
-                <ScalarProperty Name="IdActivity" ColumnName="IdActivity" />
                 <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="IdActivity" ColumnName="IdActivity" />
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+                <ScalarProperty Name="DateEvent" ColumnName="DateEvent" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Spesial">
             <EntityTypeMapping TypeName="Diachkov_CollegeModel.Spesial">
               <MappingFragment StoreEntitySet="Spesial">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Diachkov_CollegeModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

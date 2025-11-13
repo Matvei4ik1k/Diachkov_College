@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diachkov_College.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,26 @@ namespace Diachkov_College.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(ActivitityTb.Text) && string.IsNullOrEmpty(DirectionCmb.Text))
+            {
+                MessageBox.Show("Заполните все поля");
+            }
+            else
+            {
+                Activity activity = new Activity()
+                {
+                    Name = ActivitityTb.Text,
+                    Direction = DirectionCmb.SelectedItem as Direction
+                };
 
+                App.context.Activity.Add(activity);
+                App.context.SaveChanges();
+                MessageBox.Show("Активность добавлена");
+                ActivitityTb.Text = "";
+                DirectionCmb.Text = "";
+
+
+            }
         }
     }
 }

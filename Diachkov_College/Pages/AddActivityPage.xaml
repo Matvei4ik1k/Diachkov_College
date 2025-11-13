@@ -29,7 +29,7 @@
 
             <TextBlock Grid.Column="1" VerticalAlignment="Center" Grid.Row="2" Text="Введите активность" FontSize="16"/>
             <TextBox Name="ActivitityTb" Grid.Row="2" Grid.Column="3" Background="White" />
-            <TextBlock Grid.Column="1"  VerticalAlignment="Center" Grid.Row="4" Text="Выберите напровление" FontSize="16"/>
+            <TextBlock Grid.Column="1"  VerticalAlignment="Center" Grid.Row="4" Text="Выберите направление" FontSize="16"/>
             <ComboBox Name="DirectionCmb" Background="White" Grid.Row="4" Grid.Column="3" />
             <Button Height="40" Grid.Row="6" Grid.Column="3" Name="AddBtn" Click="AddBtn_Click"  Content="Добавить"/>
         </Grid>

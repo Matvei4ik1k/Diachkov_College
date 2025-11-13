@@ -24,21 +24,21 @@ namespace Diachkov_College.Pages
         public JournalPage()
         {
             InitializeComponent();
-            JornalLv.ItemsSource = App.context.Journal.ToList();
+            JournalLv.ItemsSource = App.context.Journal.ToList();
 
-            SpecialCmb.SelectedValuePath= "Id";
+            SpecialCmb.SelectedValuePath= "ID";
             SpecialCmb.DisplayMemberPath = "Name";
             SpecialCmb.ItemsSource = App.context.Spesial.ToList();
 
-            DirectionCmb.SelectedValuePath = "Id";
+            DirectionCmb.SelectedValuePath = "ID";
             DirectionCmb.DisplayMemberPath = "Name";
             DirectionCmb.ItemsSource = App.context.Direction.ToList();
 
-            GroupCmb.SelectedValuePath = "Id";
+            GroupCmb.SelectedValuePath = "ID";
             GroupCmb.DisplayMemberPath = "Name";
             GroupCmb.ItemsSource = App.context.Group.ToList();
 
-            ActivityCmb.SelectedValuePath = "Id";
+            ActivityCmb.SelectedValuePath = "ID";
             ActivityCmb.DisplayMemberPath = "Name";
             ActivityCmb.ItemsSource = App.context.Activity.ToList();
         }
@@ -55,8 +55,17 @@ namespace Diachkov_College.Pages
             {
                 Journal journal = new Journal()
                 {
-                    DateEvent = (DateTime)DateEventDp
-                }
+                    DateEvent = (DateTime)DateEventDp.SelectedDate,
+                    Group = GroupCmb.SelectedItem as Group,
+                    Activity = ActivityCmb.SelectedItem as Activity,
+                    Mark = Convert.ToDecimal(MarkTb.Text)   
+                };
+
+                App.context.Journal.Add(journal);
+                App.context.SaveChanges();
+                MessageBox.Show("Запись добавлена");
+
+                JournalLv.ItemsSource = App.context.Journal.ToList();
             }
         }
     }
