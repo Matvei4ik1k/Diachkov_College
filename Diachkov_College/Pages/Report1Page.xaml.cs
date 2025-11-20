@@ -23,6 +23,24 @@ namespace Diachkov_College.Pages
         public Report1Page()
         {
             InitializeComponent();
+
+            GroupCmb.SelectedValuePath = "id";
+            GroupCmb.DisplayMemberPath = "Name";
+            GroupCmb.ItemsSource = App.context.Group.ToList();
+        }
+
+        private void ChooseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(DateStartDp.Text) && string.IsNullOrEmpty(DateFinishDp.Text) && string.IsNullOrEmpty(GroupCmb.Text))
+            {
+                MessageBox.Show("Заполните все поля");
+            }
+            else { 
+            int chooseGroup = Convert.ToInt32(GroupCmb.Text);
+                var a = (DateTime)DateStartDp.SelectedDate;
+                var b = (DateTime)DateFinishDp.SelectedDate;
+                ReportDg.ItemsSource = App.context.Journal.Where(j => j.IdGroup == chooseGroup).Where(o =>o.DateEvent >= a && o.DateEvent <=b).ToList();
+            }
         }
     }
 }

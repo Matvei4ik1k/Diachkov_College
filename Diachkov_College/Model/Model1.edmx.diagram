@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="Diachkov_CollegeModel.Group" Width="1.5" PointX="3" PointY="5.125" />
         <EntityTypeShape EntityType="Diachkov_CollegeModel.Journal" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="Diachkov_CollegeModel.Spesial" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="Diachkov_CollegeModel.View_1" Width="1.5" PointX="6.25" PointY="4.875" />
         <AssociationConnector Association="Diachkov_CollegeModel.FK__Activity__IdDire__3A81B327" />
         <AssociationConnector Association="Diachkov_CollegeModel.FK__Journal__IdActiv__412EB0B6" />
         <AssociationConnector Association="Diachkov_CollegeModel.FK__Group__IdSpecial__3D5E1FD2" />

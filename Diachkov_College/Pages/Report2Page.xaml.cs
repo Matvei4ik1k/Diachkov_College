@@ -24,5 +24,10 @@ namespace Diachkov_College.Pages
         {
             InitializeComponent();
         }
+
+        private void UpdateReportBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
