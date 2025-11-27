@@ -24,6 +24,10 @@ namespace Diachkov_College.Pages
         public AddActivityPage()
         {
             InitializeComponent();
+
+            DirectionCmb.SelectedValuePath = "ID";
+            DirectionCmb.DisplayMemberPath = "Name";
+            DirectionCmb.ItemsSource = App.context.Direction.ToList();
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)

@@ -35,11 +35,14 @@ namespace Diachkov_College.Pages
             {
                 MessageBox.Show("Заполните все поля");
             }
-            else { 
-            int chooseGroup = Convert.ToInt32(GroupCmb.Text);
+            else
+            {
+                int chooseGroup = Convert.ToInt32(GroupCmb.SelectedValue);
                 var a = (DateTime)DateStartDp.SelectedDate;
                 var b = (DateTime)DateFinishDp.SelectedDate;
-                ReportDg.ItemsSource = App.context.Journal.Where(j => j.IdGroup == chooseGroup).Where(o =>o.DateEvent >= a && o.DateEvent <=b).ToList();
+                ReportDg.ItemsSource = App.context.Journal
+                    .Where(j => j.IdGroup == chooseGroup)
+                    .Where(o => o.DateEvent >= a && o.DateEvent <= b).ToList();
             }
         }
     }
